@@ -1,33 +1,38 @@
-Snort IDS Lab – DVWA Attack Detection
-Overview
+# Snort IDS Lab – DVWA Attack Detection
 
-This project demonstrates a simulated Intrusion Detection System (IDS) environment using Snort to monitor network traffic and detect malicious activity targeting a vulnerable web application (DVWA).
+## Overview
 
-The lab simulates a real-world network where an attacker attempts reconnaissance and exploitation while Snort monitors and generates alerts.
+This project demonstrates a simulated Intrusion Detection System (IDS) environment using **Snort** to monitor network traffic and detect malicious activity targeting a vulnerable web application (**DVWA**).
 
-Lab Architecture
+The lab simulates a real-world network where an attacker performs reconnaissance and exploitation while Snort monitors the traffic and generates alerts.
+
+## Lab Architecture
 
 The environment consists of three virtual machines:
 
-Kali Linux – Attacker machine
-Ubuntu Router – Runs Snort IDS and inspects network traffic
-Ubuntu Web Server – Hosts the DVWA vulnerable web application
+- **Kali Linux** – Attacker machine
+- **Ubuntu Router** – Runs Snort IDS and inspects network traffic
+- **Ubuntu Web Server** – Hosts the DVWA vulnerable web application
 
 Traffic flow:
 
-Kali Attacker → Snort Router → DVWA Web Server
+`Kali Attacker → Snort Router → DVWA Web Server`
 
-Technologies Used
-Snort IDS
-Kali Linux
-Ubuntu Server
-DVWA (Damn Vulnerable Web Application)
-VirtualBox
-Custom Snort Detection Rules
-ICMP Reconnaissance Detection
+## Technologies Used
+
+- Snort IDS
+- Kali Linux
+- Ubuntu Server
+- DVWA (Damn Vulnerable Web Application)
+- VirtualBox
+
+## Custom Snort Detection Rules
+
+### ICMP Reconnaissance Detection
 
 Detects ping scans targeting the protected network.
 
+```snort
 alert icmp any any -> $HOME_NET any (msg:"ICMP Ping Detected"; sid:1000001; rev:2;)
 SQL Injection Detection
 
@@ -37,42 +42,23 @@ alert tcp any any -> $HOME_NET 80 (msg:"SQL Injection Attempt"; content:"OR"; si
 Demonstration
 Lab Architecture
 
-
-
-
 SQL Injection Attack on DVWA
-
-
-
 
 Snort Detecting ICMP Reconnaissance
 
-
-
-
 Network Configuration
-
 Kali Attacker
-
-
-
 
 Router
 
-
-
-
 Web Server
-
-
-
 
 Learning Outcomes
 
-Through this project I:
+Through this project, I:
 
 Built a simulated SOC monitoring environment
-Configured Snort intrusion detection rules
+Configured custom Snort intrusion detection rules
 Simulated network reconnaissance and web application attacks
 Analyzed IDS alerts generated from malicious traffic
 Practiced network segmentation and traffic inspection
@@ -81,6 +67,6 @@ Future Improvements
 Potential enhancements to this lab include:
 
 Detecting Nmap scans
-Implementing brute force detection rules
+Implementing brute-force detection rules
 Logging alerts for SIEM integration
-Expanding detection to include web attack signatures
+Expanding detection to include additional web attack signatures
