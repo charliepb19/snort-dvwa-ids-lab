@@ -31,6 +31,28 @@ Kali Attacker → Snort Router → DVWA Web Server
 
 ![Lab Architecture](screenshots/lab.architecture.png)
 
+### Network Segmentation
+
+The network is segmented so that all traffic between the attacker and the web server passes through the Snort IDS router.
+
+This ensures that Snort can inspect every packet flowing between the attacker and the target server.
+
+Network layout:
+
+Attacker (Kali Linux)  
+IP: 192.168.57.30  
+
+⬇  
+
+Router (Snort IDS)  
+Interfaces:
+192.168.57.1  
+192.168.56.10  
+
+⬇  
+
+Web Server (DVWA)  
+IP: 192.168.56.20
 ---
 
 # Technologies Used
